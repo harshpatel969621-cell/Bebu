@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday Bebuu ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff4e8a,#ffb6c1,#ffe4e1);
+overflow-x:hidden;
+text-align:center;
+color:white;
+}
+
+.hero{
+padding:80px 20px;
+}
+
+h1{
+font-size:45px;
+text-shadow:0 0 15px red;
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:#ff0066;
+color:white;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#countdown{
+font-size:35px;
+margin:30px;
+}
+
+.gallery{
+display:flex;
+overflow:auto;
+gap:15px;
+padding:20px;
+}
+
+.gallery img{
+width:250px;
+height:330px;
+border-radius:20px;
+object-fit:cover;
+box-shadow:0 0 15px white;
+}
+
+.card{
+width:90%;
+max-width:700px;
+margin:30px auto;
+background:rgba(255,255,255,.15);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(8px);
+}
+
+.heart{
+position:fixed;
+top:-50px;
+font-size:25px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+.firework{
+position:fixed;
+font-size:35px;
+animation:boom 1s linear forwards;
+}
+
+@keyframes boom{
+0%{transform:scale(.2);opacity:1;}
+100%{transform:scale(3);opacity:0;}
+}
+</style>
+
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="heeriye.m4a" type="audio/mp4">
+</audio>
+
+<section class="hero">
+
+<h1>🎂 Happy Birthday Bebuu ❤️</h1>
+
+<h2>Made With ❤️ By Harshu</h2>
+
+<div id="countdown"></div>
+
+<button onclick="startSurprise()">🎁 Open Surprise</button>
+
+</section>
+
+<section>
+
+<h2>📸 Our Memories</h2>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+
+</div>
+
+</section>
+
+<div class="card">
+
+<h2>💌 A Letter For You</h2>
+
+<p style="font-size:20px;line-height:1.8">
+
+Happy Birthday My Sweet Bebuu ❤️<br><br>
+
+Today is the most beautiful day because someone as amazing as you came into this world.
+
+Your smile brightens every moment, your happiness means so much, and your kindness makes life more beautiful.
+
+May this year bring you endless joy, success, peace, and unforgettable memories. Keep smiling, keep shining, and always remember how special you are.
+
+Thank you for being you.
+
+🎂 Happy Birthday once again, Bebuu. ❤️
+
+<br><br>
+
+Forever wishing the very best for you,
+
+<br>
+
+❤️ Harshu ❤️
+
+</p>
+
+</div>
+
+<script>
+
+function startSurprise(){
+
+document.getElementById("music").play();
+
+for(let i=0;i<150;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=["❤️","💕","💖","💘","🌹","✨"][Math.floor(Math.random()*6)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(Math.random()*4+3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),7000);
+
+}
+
+fireworks();
+
+}
+
+function fireworks(){
+
+setInterval(()=>{
+
+let f=document.createElement("div");
+
+f.className="firework";
+
+f.innerHTML="🎆";
+
+f.style.left=Math.random()*100+"vw";
+
+f.style.top=Math.random()*70+"vh";
+
+document.body.appendChild(f);
+
+setTimeout(()=>f.remove(),1000);
+
+},300);
+
+}
+
+function countdown(){
+
+let now=new Date();
+
+let year=now.getFullYear();
+
+let target=new Date(year,6,14);
+
+if(now>target) target.setFullYear(year+1);
+
+let diff=target-now;
+
+let d=Math.floor(diff/1000/60/60/24);
+
+let h=Math.floor(diff/1000/60/60)%24;
+
+let m=Math.floor(diff/1000/60)%60;
+
+let s=Math.floor(diff/1000)%60;
+
+document.getElementById("countdown").innerHTML=
+
+"⏳ "+d+" Days "+h+" Hours "+m+" Minutes "+s+" Seconds";
+
+}
+
+setInterval(countdown,1000);
+
+countdown();
+
+</script>
+
+</body>
+</html>
